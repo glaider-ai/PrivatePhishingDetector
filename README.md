@@ -1,6 +1,6 @@
 ## Private Phishing Detector
 
-The Private Phishing Detector is a Python-based application designed to monitor incoming emails and detect potential phishing threats using OpenAI's API and the pymailtm library. It features real-time email monitoring, sophisticated phishing analysis, and prompt injection checks to prevent misuse of the machine learning model.
+The Private Phishing Detector is a Python-based application designed to monitor incoming emails and detect potential phishing threats using OpenAI's API and the pymailtm library. It features real-time email monitoring, anti-phishing analysis, and prompt injection checks to prevent misuse of the machine learning model.
 The interactions with the LLM are secured by `glaider`.
 
 ### Features
