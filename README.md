@@ -1,6 +1,7 @@
 ## Private Phishing Detector
 
 The Private Phishing Detector is a Python-based application designed to monitor incoming emails and detect potential phishing threats using OpenAI's API and the pymailtm library. It features real-time email monitoring, sophisticated phishing analysis, and prompt injection checks to prevent misuse of the machine learning model.
+The interactions with the LLM are secured by `glaider`.
 
 ### Features
 
@@ -12,15 +13,12 @@ The Private Phishing Detector is a Python-based application designed to monitor 
 ### Prerequisites
 
 - Python 3.9
-- pymailtm
-- glaider
-- python-dotenv
 
 ### Installation
 
 1. Install the required packages:
    ```
-   pip install pymailtm glaider python-dotenv
+   pip install -r requirements.txt
    ```
 2. Create a `.env` file in the root directory with the following variables:
    ```
@@ -31,11 +29,18 @@ The Private Phishing Detector is a Python-based application designed to monitor 
    GLAIDER_API_KEY=your_glaider_api_key_here
    ```
 
+3. If you are using `pymailtm==1.1.1 `, you need to add the following lines of code in `pymailtm.py` in the line `51`:
+    ```
+    if "text" not in full_message_json or "html" not in full_message_json:
+        continue
+    ```
+
+
 ### Usage
 
 Execute the script using the command:
 ```
-python email_phishing_detector.py
+python main.py
 ```
 The application will continuously monitor for new emails and display the phishing analysis results, including checks for prompt injections.
 
@@ -48,4 +53,10 @@ The application will continuously monitor for new emails and display the phishin
   - Performs prompt injection checks using the glaider API before sending content to OpenAI, enhancing security.
 - **Reporting**: Outputs the phishing analysis and prompt injection results to the console.
 
-for any question or more information about glaider write un an email at info@glaider.it
+### Dashboard Access
+
+To have access to the dashboard to see all the risks and analytics, write an email at info@glaider.it
+
+### Others
+
+for any question or more information about glaider, write un an email at info@glaider.it
